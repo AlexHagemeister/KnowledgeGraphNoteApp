@@ -1,0 +1,44 @@
+graph_window.py old
+
+"""
+# Import necessary modules from PyQt6
+from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit, QVBoxLayout, QPushButton
+from PyQt6.QtCore import Qt
+import sys  # Import the sys module for system-specific parameters and functions
+
+# Define a function that will be called when text is entered in the text box
+def on_text_entered():
+    text = text_box.text()  # Get the text from the text box
+    print(f"You entered: {text}")  # Print the text to the console
+
+# Create a new QApplication object; this is required for any PyQt6 application
+app = QApplication([])
+
+# Create a QWidget object, which will serve as the main window for the application
+window = QWidget()
+
+# Create a QVBoxLayout object, which will manage the layout of widgets in the window
+layout = QVBoxLayout()
+
+# Create a QLineEdit object, which is a text box that users can type into
+text_box = QLineEdit()
+
+# Set placeholder text in the text box to guide the user
+text_box.setPlaceholderText("Enter your command here...")
+
+# Connect the 'returnPressed' signal from the text box to the 'on_text_entered' function
+# This means that when the Enter key is pressed while the text box is focused, 'on_text_entered' will be called
+text_box.returnPressed.connect(on_text_entered)
+
+# Add the text box to the layout
+layout.addWidget(text_box)
+
+# Set the layout for the main window
+window.setLayout(layout)
+
+# Show the main window
+window.show()
+
+# Start the application's event loop
+sys.exit(app.exec())
+"""

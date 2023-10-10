@@ -1,0 +1,21 @@
+# Virtual environments
+graph_env/
+
+# Compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/Editor folders
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+
+# Build and Distribution folders
+build/
+dist/
+
+# Logs
+*.log

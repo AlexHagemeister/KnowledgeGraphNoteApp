@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Graph</title>
+    <!-- Include Vis.js CSS and JS files -->
+    <link href="./vis-network.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./vis-network.min.js"></script>
+</head>
+<body>
+    <!-- Container to render the graph -->
+    <div id="mynetwork"></div>
+
+    <script type="text/javascript">
+        // Initialize a Vis.js network
+        var nodes = new vis.DataSet([
+            // Example nodes
+            {id: 1, label: 'Node 1'},
+            {id: 2, label: 'Node 2'},
+        ]);
+
+        var edges = new vis.DataSet([
+            // Example edges
+            {from: 1, to: 2},
+        ]);
+
+        var container = document.getElementById('mynetwork');
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+        var options = {};
+        var network = new vis.Network(container, data, options);
+
+        // Custom code to handle node clicks
+        network.on("click", function(params) {
+            if (params.nodes.length > 0) {
+                var nodeId = params.nodes[0];
+                var nodeName = prompt("Enter new name for node:", "");
+                if (nodeName !== null) {
+                    nodes.update([{id: nodeId, label: nodeName}]);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
